@@ -550,12 +550,13 @@ remaining life time of the repository whitelist and the catalog time-to-live.
 
 **Note:** The ``cvmfs_info`` utility queries stratum servers without passing
 through web proxies.  It is not meant to be used on a large-scale by all
-clients.  On clients, the extended attribute ``revision`` can be used to check
-for the currently active repository state, like
+clients.  On clients, extended attributes can be queried to get information about
+the repository state, for example:
 
 ::
 
-    attr -g revision /cvmfs/cernvm-prod.cern.ch
+    getfattr -d /cvmfs/cernvm-prod.cern.ch
+    getfattr -n user.revision /cvmfs/cernvm-prod.cern.ch
 
 
 .. _sct_tarball:
